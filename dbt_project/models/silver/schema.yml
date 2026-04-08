@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_trips
+    description: "Cleaned and validated NYC Yellow Taxi trips for January 2024"
+    columns:
+      - name: vendor_id
+        description: "Taxi vendor identifier"
+        data_tests:
+          - not_null
+
+      - name: tpep_pickup_datetime
+        description: "Trip pickup timestamp"
+        data_tests:
+          - not_null
+
+      - name: trip_distance
+        description: "Trip distance in miles"
+        data_tests:
+          - not_null
+
+      - name: total_amount
+        description: "Total fare amount in USD"
+        data_tests:
+          - not_null
+
+      - name: payment_type_name
+        description: "Payment method"
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['Credit Card', 'Cash', 'No Charge', 'Dispute', 'Unknown', 'Other']

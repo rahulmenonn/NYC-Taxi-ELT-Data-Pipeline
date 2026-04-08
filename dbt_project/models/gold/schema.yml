@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: fct_hourly_demand
+    description: "Hourly trip demand and revenue aggregated by date and hour"
+    columns:
+      - name: trip_date
+        data_tests:
+          - not_null
+      - name: total_trips
+        data_tests:
+          - not_null
+      - name: time_period
+        data_tests:
+          - not_null
+
+  - name: fct_payment_analysis
+    description: "Payment type breakdown with fare and tip analysis"
+    columns:
+      - name: payment_type_name
+        data_tests:
+          - not_null
+          - unique
+      - name: total_trips
+        data_tests:
+          - not_null
+
+  - name: fct_daily_summary
+    description: "Daily trip and revenue summary for January 2024"
+    columns:
+      - name: trip_date
+        data_tests:
+          - not_null
+          - unique
+      - name: total_revenue
+        data_tests:
+          - not_null
